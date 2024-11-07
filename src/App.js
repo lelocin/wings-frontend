@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Filter from './components/Filter';
+import Results from './components/Results';
 
-function App() {
+const App = () => {
+  const [seatingCapacity, setSeatingCapacity] = useState('');
+  const [standingCapacity, setStandingCapacity] = useState('');
+  const [city, setCity] = useState('');
+  const [style, setStyle] = useState('');
+  const [keywords, setKeywords] = useState('');
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+  };
+
+  const results = [
+    {
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Filter
+        seatingCapacity={seatingCapacity}
+        setSeatingCapacity={setSeatingCapacity}
+        standingCapacity={standingCapacity}
+        setStandingCapacity={setStandingCapacity}
+        city={city}
+        setCity={setCity}
+        style={style}
+        setStyle={setStyle}
+        keywords={keywords}
+        setKeywords={setKeywords}
+        handleFilter={handleFilter}
+      />
+      <Results results={results} />
     </div>
   );
-}
+};
 
 export default App;
