@@ -10,15 +10,42 @@ const App = () => {
   const [city, setCity] = useState('');
   const [style, setStyle] = useState('');
   const [keywords, setKeywords] = useState('');
+  const [showResults, setShowResults] = useState(false);
+  const [results, setResults] = useState([]);
 
-  const handleFilter = (e) => {
-    e.preventDefault();
+  const handleFilter = (filterValues) => {
+    const dummyResults = [
+      {
+        venueName: "Blue Note Jazz Club",
+        city: "New York",
+        zipCode: "10001",
+        capacityStanding: 500,
+        capacitySeating: 200,
+        style: "Jazz Club",
+        keywords: "intimate, cozy",
+        matchScore: 95,
+        phone: "(212) 555-0123",
+        email: "venue@example.com",
+        website: "https://example.com"
+      },
+      {
+        venueName: "Brooklyn Steel",
+        city: "Brooklyn",
+        zipCode: "11201",
+        capacityStanding: 300,
+        capacitySeating: 150,
+        style: "Rock Venue",
+        keywords: "industrial, spacious",
+        matchScore: 85,
+        phone: "(718) 555-0123",
+        email: "venue2@example.com",
+        website: "https://example2.com"
+      }
+    ];
+
+    setResults(dummyResults);
+    setShowResults(true);
   };
-
-  const results = [
-    {
-    },
-  ];
 
   return (
     <div className="App">
@@ -36,7 +63,7 @@ const App = () => {
         setKeywords={setKeywords}
         handleFilter={handleFilter}
       />
-      <Results results={results} />
+      {showResults && <Results results={results} />}
     </div>
   );
 };

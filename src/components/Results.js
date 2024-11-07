@@ -11,6 +11,7 @@ const ResultsSection = ({ results }) => {
 };
 
 const ResultItem = ({
+  venueName,
   city,
   zipCode,
   capacityStanding,
@@ -24,8 +25,10 @@ const ResultItem = ({
 }) => {
   return (
     <div className="result-item">
+      <h3>{venueName}</h3>
       <h3>Match Score: {matchScore}</h3>
-      <p>City: {city}, Zip Code: {zipCode}</p>
+      <p>City: {city} </p> 
+      <p>Zip Code: {zipCode}</p>
       <p>Capacity (Standing): {capacityStanding}</p>
       <p>Capacity (Seating): {capacitySeating}</p>
       <p>Style: {style}</p>

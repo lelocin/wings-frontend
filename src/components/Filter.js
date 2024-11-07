@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Filter = () => {
+const Filter = ({ handleFilter }) => {
   const [seatingCapacity, setSeatingCapacity] = useState('');
   const [standingCapacity, setStandingCapacity] = useState('');
   const [city, setCity] = useState('');
@@ -9,15 +9,22 @@ const Filter = () => {
 
   const handleFilterSubmit = (e) => {
     e.preventDefault();
+    handleFilter({
+      seatingCapacity,
+      standingCapacity,
+      city,
+      venueStyle,
+      keywords
+    });
   };
 
   return (
     <div className="filter">
-      <h2>Filter</h2>
+      <h2>Search for a venue!</h2>
       <form onSubmit={handleFilterSubmit}>
         <div className="dropdown-filters">
           <label>
-            Capacity (Seating)
+            Capacity (Seating): 
             <select value={seatingCapacity} onChange={(e) => setSeatingCapacity(e.target.value)}>
               <option value="">Select</option>
               <option value="0-200">0-200</option>
@@ -26,10 +33,10 @@ const Filter = () => {
               <option value="600-800">600-800</option>
               <option value="800+">800+</option>
             </select>
-          </label>
+          </label><br />
 
           <label>
-            Capacity (Standing)
+            Capacity (Standing): 
             <select value={standingCapacity} onChange={(e) => setStandingCapacity(e.target.value)}>
               <option value="">Select</option>
               <option value="0-300">0-300</option>
@@ -38,38 +45,38 @@ const Filter = () => {
               <option value="900-1200">900-1200</option>
               <option value="1200+">1200+</option>
             </select>
-          </label>
+          </label><br />
 
           <label>
-            City
+            City: 
             <select value={city} onChange={(e) => setCity(e.target.value)}>
               <option value="">Select</option>
               <option value="New York">New York</option>
               <option value="Brooklyn">Brooklyn</option>
             </select>
-          </label>
+          </label><br />
         </div>
 
         <div className="text-filters">
           <label>
-            Preferred venue style:
+            Preferred venue style: 
             <input
               type="text"
               value={venueStyle}
               onChange={(e) => setVenueStyle(e.target.value)}
               placeholder="(e.g. jazz club, bar)"
             />
-          </label>
+          </label><br />
 
           <label>
-            Other keywords:
+            Other keywords: 
             <input
               type="text"
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
               placeholder="(e.g. cozy, intimate)"
             />
-          </label>
+          </label><br />
         </div>
 
         <button type="submit">Enter</button>
