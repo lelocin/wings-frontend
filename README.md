@@ -28,3 +28,5 @@ npm install
 ```
 npm start
 ```
+## AI Usage
+After establishing the basic structure for our frontend, we used Claude to refine and improve the design elements.
