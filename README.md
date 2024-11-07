@@ -2,6 +2,7 @@
 Wings of Sound is a venue-finding application for artists to discover venue spaces in New York to host performances. Through our frontend app, users can search venues based on filters like venue capacity, venue location and venue style to find their ideal venue. 
 
 ## Design decisions & technical choices 
+We consolidated all components onto a single page for simplicity. To give the landing page a professional look, we used a full page image. Overall, our frontend design prioritizes a smooth and user-friendly experience, with dropdown menus and search bars that enable quick and easy access to information.
 
 ## Components 
 Our react app has three components, which are header, filter and results. 
