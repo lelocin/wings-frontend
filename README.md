@@ -13,6 +13,7 @@ Our react app has three components, which are header, filter and results.
 1. Header: the header section provides space to explain what Wings of Sound is 
 2. Filter: the filter section allows users to search using filters (dropdown menus and search bars)
 3. Results: the results section displays results from the filter section and provides users with basic information of the venue
+4. VenueItem: this component is used by both Results and VenueList for formatting purposes
 
 ## API Documentation
 The base URL is http://localhost:8000. And the currently available endpoints are as follows: 
