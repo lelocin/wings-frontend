@@ -31,12 +31,19 @@ cd wings-of-sound
 ```
 npm install
 ```
-3. Run frontend and backend server
-Make sure to run the two servers simultaneously 
+3. Add CORS middleware so API requests from frontend can be processed
+```
+   app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+4. Run frontend and backend server simultaneously 
 ```
 npm start
 ```
-4. Add CORS Configuration so API requests from frontend can be processed.
-
 ## AI Usage
 After establishing the basic structure for our frontend, we used Claude to refine and improve the design elements.
