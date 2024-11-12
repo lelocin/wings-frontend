@@ -31,7 +31,7 @@ cd wings-of-sound
 ```
 npm install
 ```
-3. Add CORS middleware so API requests from frontend can be processed
+3. Add CORS middleware in main.py so API requests from frontend can be processed
 ```
    app.add_middleware(
     CORSMiddleware,
