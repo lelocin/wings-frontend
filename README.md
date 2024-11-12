@@ -1,8 +1,8 @@
-# Wings of Sound Frontend React App
+# Wings of Sound Full Stack (updated)
 Wings of Sound is a venue-finding application for artists to discover venue spaces in New York to host performances. Through our frontend app, users can search venues based on filters like venue capacity, venue location and venue style to find their ideal venue. 
 
 ## Figma Wireframe 
-Here is the link to our Figma wireframe! 
+Here is the link to our Figma wireframe! Page 1 is our frontend wireframe and Page 2 is our fullstack wireframe. 
 https://www.figma.com/design/xgFNCmWGeZXxc80xNeJXGm/Wings-of-Sound-Wireframe?node-id=0-1&t=yQhcsqv2YvsrCwyr-1
 
 ## Design decisions & technical choices 
@@ -26,7 +26,7 @@ cd wings-frontend
 ```
 2. Install dependencies
 ```
-npm install
+npx install
 ```
 3. Start the application
 ```
