@@ -14,6 +14,29 @@ Our react app has three components, which are header, filter and results.
 2. Filter: the filter section allows users to search using filters (dropdown menus and search bars)
 3. Results: the results section displays results from the filter section and provides users with basic information of the venue
 
+## API Documentation
+The base URL is http://localhost:8000. And the currently available endpoints are as follows: 
+1. GET (this endpoint is available on React App): Get all venue details
+     ```
+     URL: /venues/
+     ```
+2. POST: CREATE non-existing venue(s) in the venues table
+     ```
+     URL : /venues/
+     ```
+3. READ: READ a specific venue in the venues table by passing venue_id
+     ```
+     URL : /venues/{venue_id}
+     ```
+4. PUT: UPDATE a venue in the venues table based on venue_id
+     ```
+     URL : /venues/{venue_id}
+     ```
+5. DELETE: DELETE a venue in the venues table
+     ```
+     URL : /venues/{venue_id}
+     ```
+
 ## Setup - Connecting Frontend & Backend 
 Make sure to download the following two softwares: 
 - Node.js 
