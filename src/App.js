@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Filter from './components/Filter';
-import Results from './components/Results';
-import VenueList from "./components/VenueList";
+import ResultsSection from './components/Results';
+import VenueList from './components/VenueList';
 
 const App = () => {
   const [seatingCapacity, setSeatingCapacity] = useState('');
@@ -14,29 +14,10 @@ const App = () => {
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState([]);
   const [venues, setVenues] = useState([]);
-  
+  const [showAllVenues, setShowAllVenues] = useState(false);
 
-  // function for fetching venues
-  const fetchVenues = async () => {
-    try {
-      const response = await fetch("http://127.0.0.1:8000/venues/");
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      console.log("Fetched venues:", data);  // Check this in the browser console
-      setVenues(data); // Set venues state with the data
-    } catch (error) {
-      console.error("Error fetching venues:", error);
-      setVenues([]); // Clear venues state in case of an error
-    }
-  };
-  
-
-
-
-
-  const handleFilter = (filterValues) => {
+  // Dummy data for fetchVenues (user-selected filters)
+  const fetchVenues = () => {
     const dummyResults = [
       {
         venueName: "Blue Note Jazz Club",
@@ -66,9 +47,31 @@ const App = () => {
       }
     ];
 
-    setResults(dummyResults);
-    setShowResults(true);
+    setResults(dummyResults); // Set results to dummy data
+    setShowResults(true); // Show Results section
+    setShowAllVenues(false); // Hide All Venues section if previously displayed
   };
+
+  // Fetch all venues from the backend (actual data)
+  const fetchAllVenues = async () => {
+    console.log("Show All Venues button clicked");  // Log to confirm function call
+    try {
+      const response = await fetch("http://127.0.0.1:8001/venues/");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log("Fetched all venues:", data);  // Log data to verify it is fetched correctly
+      setVenues(data); // Set venues state with real data from the backend
+      setShowAllVenues(true); // Show All Venues section
+      setShowResults(false); // Hide Results section if previously displayed
+    } catch (error) {
+      console.error("Error fetching all venues:", error);
+      setVenues([]); // Clear venues state in case of an error
+    }
+  };
+  
 
   return (
     <div className="App">
@@ -84,14 +87,20 @@ const App = () => {
         setStyle={setStyle}
         keywords={keywords}
         setKeywords={setKeywords}
-        handleFilter={handleFilter}
+        handleFilter={fetchVenues}  // Using fetchVenues for filtered results
       />
-      {showResults && <Results results={results} />}
-      {venues && venues.length > 0 ? (
-  <VenueList venues={venues} />
-) : (
-  <p>No venues found.</p>
-)}
+
+      {/* Show All Venues Button */}
+      <button onClick={fetchAllVenues} className="show-all-button">Show All Venues</button>
+
+      {/* Display Results (Dummy Data) or All Venues (Backend Data) */}
+      {showResults && <ResultsSection results={results} />}
+      {showAllVenues && <VenueList venues={venues} />}
+
+      {/* Fallback Message */}
+      {!showResults && !showAllVenues && (
+        <p>No results to display. Use the filters or click "Show All Venues" to view data.</p>
+      )}
     </div>
   );
 };
