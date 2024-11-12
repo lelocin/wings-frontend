@@ -14,23 +14,29 @@ Our react app has three components, which are header, filter and results.
 2. Filter: the filter section allows users to search using filters (dropdown menus and search bars)
 3. Results: the results section displays results from the filter section and provides users with basic information of the venue
 
-## Setup
+## Setup - Connecting Frontend & Backend 
 Make sure to download the following two softwares: 
 - Node.js 
 - Git
 
-1. Clone the git repository
+1. Clone the git repository for frontend and backend 
 ```
 git clone https://github.com/lelocin/wings-frontend.git
 cd wings-frontend
+
+git clone https://github.com/apb9717/wings-of-sound.git
+cd wings-of-sound
 ```
 2. Install dependencies
 ```
-npx install
+npm install
 ```
-3. Start the application
+3. Run frontend and backend server
+Make sure to run the two servers simultaneously 
 ```
 npm start
 ```
+4. Add CORS Configuration so API requests from frontend can be processed.
+
 ## AI Usage
 After establishing the basic structure for our frontend, we used Claude to refine and improve the design elements.
