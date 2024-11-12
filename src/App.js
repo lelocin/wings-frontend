@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Filter from './components/Filter';
 import Results from './components/Results';
+import VenueList from "./components/VenueList";
 
 const App = () => {
   const [seatingCapacity, setSeatingCapacity] = useState('');
@@ -12,6 +13,28 @@ const App = () => {
   const [keywords, setKeywords] = useState('');
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState([]);
+  const [venues, setVenues] = useState([]);
+  
+
+  // function for fetching venues
+  const fetchVenues = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8000/venues/");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Fetched venues:", data);  // Check this in the browser console
+      setVenues(data); // Set venues state with the data
+    } catch (error) {
+      console.error("Error fetching venues:", error);
+      setVenues([]); // Clear venues state in case of an error
+    }
+  };
+  
+
+
+
 
   const handleFilter = (filterValues) => {
     const dummyResults = [
@@ -64,6 +87,11 @@ const App = () => {
         handleFilter={handleFilter}
       />
       {showResults && <Results results={results} />}
+      {venues && venues.length > 0 ? (
+  <VenueList venues={venues} />
+) : (
+  <p>No venues found.</p>
+)}
     </div>
   );
 };

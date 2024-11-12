@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="header">
       <h1>Wings of Sound</h1>
-      <div class="main-image">
+      <div className="main-image">
         <img src="https://media.timeout.com/images/102182623/image.jpg" alt="main-image" />
       </div>
       <div className="about">
