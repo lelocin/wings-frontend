@@ -18,14 +18,109 @@
   color: white;
 }
 
+/* Light Theme (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #2d3436;
+  --border-color: #ddd;
+  --card-bg-color: #f9f9f9;
+  --section-bg-color: #f3f3f3; /* Light gray for section backgrounds */
+  --header-bg-color: #6c5ce7;
+  --button-bg-gradient: linear-gradient(135deg, #6c5ce7, #a363d9);
+  --show-all-button-bg: linear-gradient(135deg, #3498db, #1abc9c);
+}
+
+/* Dark Theme */
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --border-color: #444;
+  --card-bg-color: #2a2a2a;
+  --section-bg-color: #1e1e1e; /* Lighter black for section backgrounds */
+  --header-bg-color: #5a4ab1;
+  --button-bg-gradient: linear-gradient(135deg, #5a4ab1, #8a63d2);
+  --show-all-button-bg: linear-gradient(135deg, #2980b9, #16a085);
+}
+
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Main app container */
+.App {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Header styling */
+.header {
+  background: var(--header-bg-color);
+  color: var(--text-color);
+}
+
+/* Results section styling */
+.results-section, .venue-item {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+/* Input and button styles */
+input, select, button {
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.filter button[type="submit"], .toggle-dark-mode, .show-all-button {
+  background: var(--button-bg-gradient);
+  color: white;
+}
+
+.toggle-dark-mode:hover, .show-all-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
 .search-section,
 .filter-section,
 .results-section {
   margin: 30px 0;
   padding: 20px;
-  background: #f8f9fa;
   border-radius: 12px;
   transition: all 0.3s ease;
+}
+
+
+.search-section{
+  background-color: var(--section-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.filter-section{
+  background-color: var(--section-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+}
+
+/* Results section outer background */
+.results-section {
+  background-color: var(--section-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
 }
 
 .form input, .form select, .form button {
@@ -78,20 +173,24 @@
   transform: scale(1.03);
 }
 
+/* Filter section styling */
 .filter {
-  background: #f8f9fa;
+  background-color: var(--section-bg-color); /* Use section background variable */
+  color: var(--text-color);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   margin: 2rem 0;
 }
 
+/* Header inside the filter section */
 .filter h2 {
-  color: #2d3436;
+  color: var(--text-color);
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
 
+/* Form styling within the filter */
 .filter form {
   display: flex;
   flex-direction: column;
@@ -109,7 +208,7 @@
   flex-direction: column;
   text-align: left;
   font-weight: 500;
-  color: #4a5568;
+  color: var(--text-color);
   gap: 0.5rem;
 }
 
@@ -119,7 +218,9 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background-color: white;
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
 }
 
 .filter select:focus, .filter input:focus {
@@ -129,7 +230,7 @@
 }
 
 .filter button[type="submit"] {
-  background: linear-gradient(135deg, #6c5ce7, #a363d9);
+  background: var(--button-bg-gradient);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -163,7 +264,7 @@
 }
 
 .show-all-button {
-  background: linear-gradient(135deg, #3498db, #1abc9c);;
+  background: var(--button-bg-gradient);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -180,3 +281,21 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
+
+
+
+
+/* Dark mode toggle button */
+.toggle-dark-mode {
+  background: var(--button-bg-gradient);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 1rem 0;
+}
+

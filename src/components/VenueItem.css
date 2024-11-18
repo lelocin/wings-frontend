@@ -1,0 +1,66 @@
+/* VenueItem.css */
+
+.venue-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background-color: var(--card-bg-color);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .venue-details {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .match-score-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+  
+  /* Dynamic color based on score */
+  .match-score-circle[data-score="high"] {
+    background: linear-gradient(135deg, #43a047, #66bb6a); /* Soft green gradient for high score */
+  }
+  
+  .match-score-circle[data-score="medium"] {
+    background: linear-gradient(135deg, #fdd835, #ffeb3b); /* Yellow gradient for neutral medium score */
+  }
+  
+  .match-score-circle[data-score="low"] {
+    background: linear-gradient(135deg, #e53935, #ef5350); /* Red gradient for low score */
+  }
+  
+  .match-score-circle span {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+  
+  /* Border effect for circle */
+  .match-score-circle:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    opacity: 0.8;
+  }
+  

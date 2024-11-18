@@ -1,44 +1,27 @@
 // VenueItem.js
 import React from 'react';
+import './VenueItem.css';
 
-const VenueItem = ({
-  venueName,
-  name,
-  city,
-  zipCode,
-  zipcode,
-  capacityStanding,  // Dummy data: standing capacity
-  capacitySeating,   // Dummy data: seating capacity
-  capacity,          // Actual data: combined capacity
-  style,
-  keywords,
-  matchScore,        // Specific to dummy data
-  phone,
-  email,
-  website,
-}) => {
+const VenueItem = ({ name, city, zipcode, phone, capacity, style, keywords, match_score }) => {
+  // Determine the score level for dynamic coloring
+  const scoreLevel = match_score >= 80 ? 'high' : match_score >= 50 ? 'medium' : 'low';
+
   return (
-    <div className="result-item"> {/* Apply consistent styling */}
-      <h3>{venueName || name}</h3>
-      {matchScore && <h4>Match Score: {matchScore}</h4>}
-      <p>City: {city}</p>
-      <p>ZIP Code: {zipCode || zipcode}</p>
-
-      {/* Conditional rendering for capacities */}
-      {capacityStanding && capacitySeating ? (
-        <>
-          <p>Capacity (Standing): {capacityStanding}</p>
-          <p>Capacity (Seating): {capacitySeating}</p>
-        </>
-      ) : (
+    <div className="venue-item">
+      <div className="venue-details">
+        <h3>{name}</h3>
+        <p>City: {city}</p>
+        <p>ZIP Code: {zipcode}</p>
+        <p>Phone: {phone}</p>
         <p>Capacity: {capacity}</p>
+        <p>Style: {style}</p>
+        <p>Keywords: {keywords}</p>
+      </div>
+      {match_score !== undefined && (
+        <div className="match-score-circle" data-score={scoreLevel}>
+          <span>{Math.round(match_score)}%</span>
+        </div>
       )}
-
-      <p>Style: {style}</p>
-      <p>Keywords: {keywords}</p>
-      {website && <a href={website} target="_blank" rel="noopener noreferrer">Link to website</a>}
-      <p>Call: {phone}</p>
-      {email && <p>Email: <a href={`mailto:${email}`}>{email}</a></p>}
     </div>
   );
 };
