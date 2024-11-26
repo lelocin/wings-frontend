@@ -53,21 +53,21 @@ cd wings-of-sound
 ```
 2. Install dependencies
 ```
+cd wings-frontend
 npm install
 ```
-3. Add CORS middleware in main.py so API requests from frontend can be processed
 ```
-   app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+cd wings-of-sound
+pip install -r requirements.txt
 ```
-4. Run frontend and backend server simultaneously 
+3. Run frontend and backend server simultaneously 
 ```
+cd wings-frontend
 npm start
+```
+```
+cd wings-of-sound
+uvicorn main:app --reload
 ```
 ## AI Usage
 After establishing the basic structure for our frontend, we used Claude to refine and improve the design elements.
