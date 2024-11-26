@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
@@ -79,8 +78,12 @@ const App = () => {
         handleFilter={fetchVenues}
         handleShowAll={fetchAllVenues}
       />
-      {showResults && <ResultsSection results={results} />}
-      {showAllVenues && <VenueList venues={venues} />}
+      {showResults && 
+        <ResultsSection results={results} darkMode={darkMode} />
+      }
+      {showAllVenues && 
+        <VenueList venues={venues} darkMode={darkMode} />
+      }
     </div>
   );
 };

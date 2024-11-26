@@ -1,17 +1,20 @@
-// VenueList.js
 import React from 'react';
 import VenueItem from './VenueItem';
 
-const VenueList = ({ venues }) => {
+const VenueList = ({ venues, darkMode }) => {
   return (
-    <div className="results-section"> {/* Use the same class as ResultsSection */}
-      {venues.length === 0 ? (
-        <p>No venues available.</p>
-      ) : (
-        venues.map((venue, index) => (
-          <VenueItem key={index} {...venue} />
-        ))
-      )}
+    <div className={`venue-list ${darkMode ? 'dark' : ''}`}>
+      <h2>All Venues</h2>
+      <div className="venue-grid">
+        {venues.map((venue) => (
+          <VenueItem
+            key={venue.id}
+            {...venue}
+            darkMode={darkMode}
+            // Do not pass the photo prop for all venues
+          />
+        ))}
+      </div>
     </div>
   );
 };
