@@ -60,7 +60,7 @@ npm install
 cd wings-of-sound
 pip install -r requirements.txt
 ```
-3. Run frontend and backend server simultaneously 
+3. Run frontend and backend server simultaneously in separate terminal windows
 ```
 cd wings-frontend
 npm start
