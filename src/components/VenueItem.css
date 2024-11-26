@@ -64,3 +64,20 @@
     opacity: 0.8;
   }
   
+  .venue-link {
+    color: var(--primary-color); /* Your link color */
+    font-weight: bold;
+    text-decoration: underline;
+    word-wrap: break-word; /* Break long words if necessary */
+    word-break: break-all; /* Break long strings at any point if necessary */
+    overflow-wrap: anywhere; /* Allow breaking at any point to fit the container */
+    display: inline-block; /* Ensure block-level behavior for wrapping */
+    max-width: 100%; /* Constrain link width to container */
+  }
+  
+  .venue-link:hover {
+    color: var(--hover-color); /* Your hover link color */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  
