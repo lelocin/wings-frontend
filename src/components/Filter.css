@@ -1,0 +1,51 @@
+.inline-input {
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px dotted #ccc;
+    background: transparent;
+    padding: 0;
+    margin: 0 0.25rem;
+    color: #2196F3;
+    width: fit-content;
+    min-width: 50px;
+}
+.inline-input-number {
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px dotted #ccc;
+    background: transparent;
+    padding: 0;
+    margin: 0 0.25rem;
+    color: #2196F3;
+    width: 50px;
+}
+
+.inline-select {
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px dotted #ccc;
+  background: transparent;
+  padding: 0;
+  margin: 0 0.25rem;
+  color: #2196F3;
+  appearance: none;
+}
+
+.inline-select {
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 0.4em auto;
+  padding-right: 0.8rem;
+  width: auto;
+  min-width: 50px;
+}
+
+.filter-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}

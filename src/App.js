@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Filter from './components/Filter';
 import ResultsSection from './components/Results';
 import VenueList from './components/VenueList';
+import LoadingScreen from './components/LoadingScreen';
 
 const App = () => {
   const [city, setCity] = useState('');
@@ -16,6 +17,11 @@ const App = () => {
   const [venues, setVenues] = useState([]);
   const [showAllVenues, setShowAllVenues] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const handleLoadComplete = () => {
+    setLoading(false);
+  };
 
   useEffect(() => {
     // Toggle dark mode class on body element
@@ -56,9 +62,14 @@ const App = () => {
 
   return (
     <div className="App">
+      {loading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
       <Header />
-      <button onClick={toggleDarkMode} className="toggle-dark-mode">
-        {darkMode ? "Light Mode" : "Dark Mode"}
+      <button 
+        onClick={toggleDarkMode} 
+        className="dark-mode-toggle"
+        aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      >
+        <i className={darkMode ? "fas fa-sun" : "fas fa-moon"}></i>
       </button>
       <Filter
         city={city} setCity={setCity}
@@ -66,11 +77,10 @@ const App = () => {
         capacity={capacity} setCapacity={setCapacity}
         keywords={keywords} setKeywords={setKeywords}
         handleFilter={fetchVenues}
+        handleShowAll={fetchAllVenues}
       />
-      <button onClick={fetchAllVenues} className="show-all-button">Show All Venues</button>
       {showResults && <ResultsSection results={results} />}
       {showAllVenues && <VenueList venues={venues} />}
-      {!showResults && !showAllVenues && <p>No results to display.</p>}
     </div>
   );
 };
