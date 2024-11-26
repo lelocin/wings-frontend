@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Information from './components/Information'
 import Filter from './components/Filter';
 import ResultsSection from './components/Results';
 import VenueList from './components/VenueList';
@@ -70,6 +71,7 @@ const App = () => {
       >
         <i className={darkMode ? "fas fa-sun" : "fas fa-moon"}></i>
       </button>
+      <Information />
       <Filter
         city={city} setCity={setCity}
         style={style} setStyle={setStyle}
