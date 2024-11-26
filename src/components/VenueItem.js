@@ -9,14 +9,13 @@ const VenueItem = ({ name, city, zipcode, phone, capacity, style, keywords, emai
   return (
     <div className="venue-item">
       <div className="venue-details">
-        <h3>{name}</h3>
+        <h2>{name}</h2>
         <p>City: {city}</p>
         <p>ZIP Code: {zipcode}</p>
         <p>Phone: {phone ? phone : "N/A"}</p>
         <p>Email: {email ? email : "N/A"}</p>
         <p>Capacity: {capacity}</p>
         <p>Style: {style}</p>
-        <p>Keywords: {keywords}</p>
         <p>
         URL:{' '} 
         {inquiry_url ? (

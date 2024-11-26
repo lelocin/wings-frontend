@@ -1,0 +1,28 @@
+.information {
+    max-width: 66.67%;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.information h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: 'Horizon';
+}
+
+.information p {
+    line-height: 1.6;
+    color: inherit;
+    font-size: 1.1rem;
+    font-family: 'GothamLight';
+}
+
+@media (max-width: 768px) {
+    .information h2 {
+        font-size: 1.5rem;
+    }
+    
+    .information p {
+        font-size: 1rem;
+    }
+}

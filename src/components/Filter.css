@@ -1,3 +1,8 @@
+.filter {
+  max-width: 80%;
+  margin: 0px auto;
+  font-family: 'GothamLight';
+}
 .inline-input {
     font-size: inherit;
     font-family: inherit;
@@ -10,6 +15,11 @@
     width: fit-content;
     min-width: 50px;
 }
+
+.inline-input::placeholder {
+  color: inherit;
+}
+
 .inline-input-number {
     font-size: inherit;
     font-family: inherit;
@@ -20,6 +30,10 @@
     margin: 0 0.25rem;
     color: #2196F3;
     width: 50px;
+}
+
+.inline-input-number::placeholder {
+  color: inherit;
 }
 
 .inline-select {
@@ -47,5 +61,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 0px;
 }

@@ -5,7 +5,7 @@ import VenueItem from './VenueItem';
 const ResultsSection = ({ results }) => {
   return (
     <section className="results-section">
-      {results.map((result, index) => (
+      {results.slice(0,10).map((result, index) => (
         <VenueItem key={index} {...result} />
       ))}
     </section>
