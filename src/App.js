@@ -34,7 +34,7 @@ const App = () => {
 
   const fetchVenues = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8001/venues/search?city=${encodeURIComponent(city)}&style=${encodeURIComponent(style)}&capacity=${encodeURIComponent(capacity)}&keywords=${encodeURIComponent(keywords)}`);
+      const response = await fetch(`https://wings-backend-498263212500.us-central1.run.app/venues/search?city=${encodeURIComponent(city)}&style=${encodeURIComponent(style)}&capacity=${encodeURIComponent(capacity)}&keywords=${encodeURIComponent(keywords)}`);
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
       const data = await response.json();
@@ -48,7 +48,7 @@ const App = () => {
 
   const fetchAllVenues = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8001/venues/");
+      const response = await fetch("https://wings-backend-498263212500.us-central1.run.app/venues/");
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
   
       const data = await response.json();
