@@ -47,7 +47,8 @@ Make sure to download the following two softwares:
 ```
 git clone https://github.com/lelocin/wings-frontend.git
 cd wings-frontend
-
+```
+```
 git clone https://github.com/apb9717/wings-of-sound.git
 cd wings-of-sound
 ```
