@@ -1,4 +1,4 @@
-# Wings of Sound Full Stack (updated)
+# Wings of Sound Full Stack
 Wings of Sound is a venue-finding application for artists to discover venue spaces in New York to host performances. Through our frontend app, users can search venues based on filters like venue capacity, venue location and venue style to find their ideal venue. 
 
 ## Figma Wireframe 
@@ -52,7 +52,7 @@ cd wings-frontend
 git clone https://github.com/apb9717/wings-of-sound.git
 cd wings-of-sound
 ```
-2. Install dependencies
+2. Install dependencies for frontend and backend
 ```
 cd wings-frontend
 npm install
@@ -71,4 +71,4 @@ cd wings-of-sound
 uvicorn main:app --reload
 ```
 ## AI Usage
-After establishing the basic structure for our frontend, we used Claude to refine and improve the design elements.
+After establishing the basic structure for our frontend, we used Claude to refine and improve the design elements, such as adding audio to when users hover over the URLs. 
