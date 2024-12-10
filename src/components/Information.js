@@ -10,7 +10,7 @@ const Information = () => {
                 Simply enter your preferences like location, style, and capacity, 
                 and we'll match you with venues that best fit your needs. 
                 Our intelligent ML matching system considers multiple factors to 
-                provide you with the most relevant recommendations.
+                provide you with the most relevant recommendations, and ways to book!
             </p>
         </div>
     );

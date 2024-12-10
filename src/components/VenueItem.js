@@ -82,6 +82,8 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
             onSendEmail(email,name)
           }} //call function passed as prop
           className = "send-email-button"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           Send Email
         </button>
