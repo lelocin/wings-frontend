@@ -9,6 +9,7 @@ import ResultsSection from './components/Results';
 import VenueList from './components/VenueList';
 import LoadingScreen from './components/LoadingScreen';
 import Footer from './components/Footer';
+import Error from './components/Error';
 
 const App = () => {
   const [city, setCity] = useState('');
@@ -22,6 +23,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const handleLoadComplete = () => {
     setLoading(false);
@@ -48,6 +50,7 @@ const App = () => {
       setShowAllVenues(false);
     } catch (error) {
       console.error("Error fetching venues:", error);
+      setShowError(true);
     } finally {
       setIsLoading(false);
     }
@@ -65,6 +68,7 @@ const App = () => {
       setShowResults(false);
     } catch (error) {
       console.error("Error fetching all venues:", error);
+      setShowError(true);
     } finally {
       setIsLoading(false);
     }
@@ -73,6 +77,7 @@ const App = () => {
   return (
     <div className="App">
       {loading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
+      {showError && <Error onClose={() => setShowError(false)} />}
       <Header />
       <button 
         onClick={toggleDarkMode} 

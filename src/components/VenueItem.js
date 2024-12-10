@@ -34,6 +34,25 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
     }
   };
 
+  const formatPhoneNumber = (phone) => {
+    // If phone is null, undefined, or empty
+    if (!phone) return "N/A";
+  
+    // Remove all non-digits
+    const numbers = phone.toString().replace(/\D/g, '');
+  
+    // Check length and format accordingly
+    if (numbers.length === 11) {
+      return `+${numbers[0]} (${numbers.slice(1,4)}) ${numbers.slice(4,7)}-${numbers.slice(7)}`;
+    } 
+    if (numbers.length === 10) {
+      return `(${numbers.slice(0,3)}) ${numbers.slice(3,6)}-${numbers.slice(6)}`;
+    }
+  
+    // If number doesn't match expected formats, return original
+    return phone;
+  };
+
   // Cleanup function to handle component unmounting
   useEffect(() => {
     return () => {
@@ -53,7 +72,7 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
         <p>ZIP Code: {zipcode}</p>
         <p>Capacity: {capacity}</p>
         <p>Style: {style}</p>
-        <p>Phone: {phone ? phone : "N/A"}</p>
+        <p>Phone: {formatPhoneNumber(phone)}</p>
         <p>Email: {email ? email : "N/A"}</p>
         {email && (
         <button 
@@ -74,6 +93,8 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
               onClick={() => {
                 window.open(inquiry_url, '_blank');
               }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               Go to Inquiry Form
             </button>

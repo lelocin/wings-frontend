@@ -90,3 +90,17 @@
   background: linear-gradient(135deg, #e53935, #ef5350);
 }
 
+.send-email-button, .inquiry-button {
+  background-color: #ff8533;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+/* Hover effects */
+.send-email-button:hover, .inquiry-button:hover {
+  background-color: #e36715; /* Darker orange */
+}
