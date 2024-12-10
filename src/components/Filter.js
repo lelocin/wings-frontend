@@ -2,7 +2,7 @@
 import React from 'react';
 import './Filter.css';
 
-const Filter = ({ city, setCity, style, setStyle, capacity, setCapacity, keywords, setKeywords, handleFilter, handleShowAll }) => {
+const Filter = ({ city, setCity, style, setStyle, capacity, setCapacity, keywords, setKeywords, handleFilter, handleShowAll, isLoading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleFilter();
@@ -50,6 +50,15 @@ const Filter = ({ city, setCity, style, setStyle, capacity, setCapacity, keyword
         </p>
         <div className="filter-actions">
           <button type="submit" className="search-button">Find Venues</button>
+          {isLoading ? (
+    <div className="loading-container">
+      <img 
+        src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif" 
+        alt="Loading..." 
+        className="loading-indicator"
+      />
+    </div>
+  ) : (
           <span 
             onClick={handleShowAll} 
             className="inline-link"
@@ -57,6 +66,7 @@ const Filter = ({ city, setCity, style, setStyle, capacity, setCapacity, keyword
           >
             Show all venues
           </span>
+          )}
         </div>
       </form>
     </div>

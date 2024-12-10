@@ -21,6 +21,7 @@ const App = () => {
   const [showAllVenues, setShowAllVenues] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLoadComplete = () => {
     setLoading(false);
@@ -36,6 +37,7 @@ const App = () => {
   };
 
   const fetchVenues = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(`https://wings-backend-498263212500.us-central1.run.app/venues/search?city=${encodeURIComponent(city)}&style=${encodeURIComponent(style)}&capacity=${encodeURIComponent(capacity)}&keywords=${encodeURIComponent(keywords)}`);
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -46,10 +48,13 @@ const App = () => {
       setShowAllVenues(false);
     } catch (error) {
       console.error("Error fetching venues:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const fetchAllVenues = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch("https://wings-backend-498263212500.us-central1.run.app/venues/");
       if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -60,6 +65,8 @@ const App = () => {
       setShowResults(false);
     } catch (error) {
       console.error("Error fetching all venues:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -82,6 +89,7 @@ const App = () => {
         keywords={keywords} setKeywords={setKeywords}
         handleFilter={fetchVenues}
         handleShowAll={fetchAllVenues}
+        isLoading={isLoading}
       />
       {showResults && 
         <ResultsSection results={results} darkMode={darkMode} />

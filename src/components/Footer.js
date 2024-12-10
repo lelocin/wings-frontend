@@ -1,6 +1,7 @@
 // Footer.js
 import React from 'react';
 import './Footer.css'; 
+import logo from '../logoto.png';
 
 const Footer = () => {
     const handleSupportEmailClick = (e) => {
@@ -13,6 +14,7 @@ const Footer = () => {
     return (
     <footer className="footer">
       <div className="footer-content">
+      <img src={logo} alt="Wings of Sound Logo" className="footer-logo" />
         <p>© {new Date().getFullYear()} Wings of Sound. All rights reserved.</p>
         <p>
           Contact us at: 
