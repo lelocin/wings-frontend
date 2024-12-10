@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './VenueItem.css';
 
-const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keywords, inquiry_url, match_score, darkMode, photo }) => {
+const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keywords, inquiry_url, match_score, darkMode, photo, onSendEmail }) => {
   // Calculate the score level for dynamic coloring
   const scoreLevel = match_score >= 80 ? 'high' : match_score >= 50 ? 'medium' : 'low';
 
@@ -51,18 +51,31 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
         <h2>{name}</h2>
         <p>City: {city}</p>
         <p>ZIP Code: {zipcode}</p>
-        <p>Phone: {phone ? phone : "N/A"}</p>
-        <p>Email: {email ? email : "N/A"}</p>
         <p>Capacity: {capacity}</p>
         <p>Style: {style}</p>
+        <p>Phone: {phone ? phone : "N/A"}</p>
+        <p>Email: {email ? email : "N/A"}</p>
+        {email && (
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            onSendEmail(email,name)
+          }} //call function passed as prop
+          className = "send-email-button"
+        >
+          Send Email
+        </button>
+        )}
         <p>
-        URL:{' '} 
-        {inquiry_url ? (
-    <a href={inquiry_url} target="_blank" rel="noopener noreferrer" className="venue-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {inquiry_url}
-    </a>
-  ) : (
-    'N/A'
+        {inquiry_url && (
+            <button
+              className="inquiry-button"
+              onClick={() => {
+                window.open(inquiry_url, '_blank');
+              }}
+            >
+              Go to Inquiry Form
+            </button>
   )}
         </p>
         </div>
