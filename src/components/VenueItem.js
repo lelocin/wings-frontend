@@ -64,7 +64,7 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
   }, [audio]);
 
   return (
-    <div className={`venue-item ${darkMode ? 'dark' : ''}`} style={{ backgroundImage: `url(data:image/jpeg;base64,${photo})` }}>
+    <div className={`venue-item ${darkMode ? 'dark' : ''}`} style={{ backgroundImage: `url(${photo})` }}>
       <div className="venue-content">
       <div className="venue-details">
         <h2>{name}</h2>
