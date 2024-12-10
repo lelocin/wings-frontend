@@ -8,6 +8,7 @@ import Filter from './components/Filter';
 import ResultsSection from './components/Results';
 import VenueList from './components/VenueList';
 import LoadingScreen from './components/LoadingScreen';
+import Footer from './components/Footer';
 
 const App = () => {
   const [city, setCity] = useState('');
@@ -88,9 +89,7 @@ const App = () => {
       {showAllVenues && 
         <VenueList venues={venues} darkMode={darkMode}/>
       }
-      <footer className="footer">
-        <p>Contact us here:</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

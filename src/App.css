@@ -348,17 +348,6 @@ input, select, button {
   color: #fff;
 }
 
-.footer {
-  background-color: #282c34;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  bottom: 0; /* Stick to the bottom of the viewport */
-  left: 0;
-  width: 100%;
-  font-size: 1rem;
-}
-
 /* email button */
 .send-email-button {
   background-color: #b36e00;

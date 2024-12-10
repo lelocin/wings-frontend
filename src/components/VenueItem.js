@@ -58,6 +58,7 @@ const VenueItem = ({ name, city, zipcode, phone, email, capacity, style, keyword
         {email && (
         <button 
           onClick={(e) => {
+            e.preventDefault();
             e.stopPropagation();
             onSendEmail(email,name)
           }} //call function passed as prop

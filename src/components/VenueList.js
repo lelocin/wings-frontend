@@ -4,11 +4,20 @@ import React from 'react';
 import VenueItem from './VenueItem';
 
 const VenueList = ({ venues, darkMode }) => {
-  const onSendEmail = (email, venueName) => {
-    const subject = `Inquiry about ${venueName}`;
-    const body = `Hello, I'm interested in booking ${venueName} for an upcoming event. Please let us know how to proceed. Thank you!`;
-   
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  let emailSent = false;
+
+    const onSendEmail = (email, venueName) => {
+        if(emailSent) return;
+        emailSent = true;
+
+        const subject = `Inquiry about ${venueName}`;
+        const body = `Hello, I'm interested in booking ${venueName} for an upcoming event. Please let us know how to proceed. Thank you!`;
+    
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        setTimeout(() => {
+            emailSent=false;
+        },1000);
   };
 
   return (
